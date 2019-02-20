@@ -29,10 +29,12 @@ def about():
 def get_uploaded_images():
     ul = []
     rootdir = os.getcwd()
+    i=0
     for subdir, dirs, files in os.walk(rootdir + '/app/static/uploads'):
         for file in files:
             print(os.path.join(subdir,file))
-            ul.append(file)
+            ul.append((file,i))
+            i+=1
     return ul
 
 @app.route('/files')
